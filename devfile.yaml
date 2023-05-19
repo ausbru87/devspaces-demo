@@ -15,17 +15,21 @@ components:
       size: 1G
 commands:
   - id: venv
+    exec:
       label: "Setup Venv"
       component: python
-      workdingDir: ${PROJECTS_ROOT}/devspaces-demo
+      workingDir: ${PROJECTS_ROOT}/devspaces-demo
       commandLine: python -m venv .venv && . .venv/bin/activate
       group:
-        kind: setup
+        kind: build
   - id: prep
+    exec:
       label: "Install deps"
       component: python
       workingDir: ${PROJECTS_ROOT}/devspaces-demo
       commandLine: pip install -r requirements.txt
+      group:
+        kind: build
   - id: run
     exec:
       label: "Run the application"
