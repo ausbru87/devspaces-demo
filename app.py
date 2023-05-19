@@ -14,3 +14,6 @@ def index():
     posts = conn.execute('SELECT * FROM posts').fetchall()
     conn.close()
     return render_template('index.html', posts=posts)
+
+if __name__ == "__main__":
+    application.run()

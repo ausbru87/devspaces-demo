@@ -14,11 +14,23 @@ components:
     volume:
       size: 1G
 commands:
+  - id: venv
+      label: "Setup Venv"
+      component: python
+      workdingDir: ${PROJECTS_ROOT}/devspaces-demo
+      commandLine: python -m venv .venv && . .venv/bin/activate
+      group:
+        kind: setup
+  - id: prep
+      label: "Install deps"
+      component: python
+      workingDir: ${PROJECTS_ROOT}/devspaces-demo
+      commandLine: pip install -r requirements.txt
   - id: run
     exec:
       label: "Run the application"
       component: python
       workingDir: ${PROJECTS_ROOT}/devspaces-demo
-      commandLine: python -m venv .venv && . .venv/bin/activate && pip install flask && python app.py
+      commandLine: python app.py
       group:
         kind: run
