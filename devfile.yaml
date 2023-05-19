@@ -19,6 +19,6 @@ commands:
       label: "Run the application"
       component: python
       workingDir: ${PROJECTS_ROOT}/devspaces-demo
-      commandLine: python -m venv .venv && . .venv/bin/activate && python hello-world.py && pip install flask
+      commandLine: python -m venv .venv && . .venv/bin/activate && pip install flask && python app.py
       group:
         kind: run
